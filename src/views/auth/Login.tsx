@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 type LoginForm = {
@@ -7,6 +7,7 @@ type LoginForm = {
 };
 
 export default function Login() {
+	const navigate = useNavigate();
 	const {
 		register,
 		handleSubmit,
@@ -15,6 +16,7 @@ export default function Login() {
 
 	const onSubmit: SubmitHandler<LoginForm> = (data) => {
 		console.log(data);
+		navigate("/home", { replace: true });
 	};
 
 	return (
